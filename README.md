@@ -24,7 +24,7 @@
 
 A local web-based file utility toolkit built with Flask. It provides a simple browser interface for common file operations like format conversion, compression, batch renaming, and video downloading.
 
-<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="auto" style="border-radius: 8px;" />
+<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="100%" style="border-radius: 8px;" />
 
 ## <a id="features"></a> ✨ Features
 
