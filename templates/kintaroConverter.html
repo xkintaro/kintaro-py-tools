@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="dropzone" class="dropzone d-flex justify-content-center align-items-center">
+    <p>Drop files here or click to upload</p>
+    <input type="file" id="fileInput" multiple style="display: none;">
+</div>
+<hr class="bg-light">
+<form id="convertForm" class="mt-4">
+    <div class="form-group">
+        <label for="format">Select the format to convert:</label>
+        <select class="form-control" id="format" name="format">
+            <optgroup label="Images">
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="webp">WEBP</option>
+            </optgroup>
+            <optgroup label="Videos">
+                <option value="mp4">MP4</option>
+                <option value="avi">AVI</option>
+                <option value="mov">MOV</option>
+                <option value="webm">WEBM</option>
+            </optgroup>
+            <optgroup label="Audio">
+                <option value="mp3">MP3</option>
+                <option value="wav">WAV</option>
+                <option value="aac">AAC</option>
+                <option value="flac">FLAC</option>
+                <option value="ogg">OGG</option>
+            </optgroup>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Convert</button>
+</form>
+<div id="status" class="text-center mt-4"></div>
+<div class="text-center">
+    <div class="spinner-border text-primary" role="status" id="loadingSpinner" style="display: none;">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<hr class="bg-light">
+<div class="accordion" id="fileAccordion">
+    <div class="card">
+        <div class="card-header" id="headingStart">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                    data-target="#collapseStart" aria-expanded="false" aria-controls="collapseStart">
+                    Converter Start Folder ({{ start_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success mr-2" onclick="openFolder('converterStart')">Open Folder</button>
+                    <button class="btn btn-danger" onclick="confirmClearFolder('converterStart')">Clear All</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseStart" class="collapse" aria-labelledby="headingStart" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="start-preview" class="list-group">
+                    {% for file in start_files %}
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFinish">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                    data-target="#collapseFinish" aria-expanded="false" aria-controls="collapseFinish">
+                    Converter Finish Folder ({{ finish_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success mr-2" onclick="openFolder('converterFinish')">Open Folder</button>
+                    <button class="btn btn-danger" onclick="confirmClearFolder('converterFinish')">Clear All</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseFinish" class="collapse" aria-labelledby="headingFinish" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="finish-preview" class="list-group">
+                    {% for file in finish_files %}
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeDropzone('converter');
+        initializeConverterForm();
+    });
+</script>
+{% endblock %}

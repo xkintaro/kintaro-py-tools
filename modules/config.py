@@ -1,0 +1,7 @@
+CONVERTER_START_DIR = 'converterStart'
+CONVERTER_FINISH_DIR = 'converterFinish'
+COMPRESSOR_START_DIR = 'compressorStart'
+COMPRESSOR_FINISH_DIR = 'compressorFinish'
+DOWNLOAD_DIR = 'downloads'
+RENAMER_START_DIR = 'renamerStart'
+RENAMER_FINISH_DIR = 'renamerFinish'

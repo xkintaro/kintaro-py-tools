@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kintaro Tools</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='md/kintaro.png') }}">
+</head>
+
+<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="content-box bg-dark text-light p-4 rounded">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='md/kintaro.png') }}" alt="Kintaro" width="48" class="me-0"
+                        height="48" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'index' }}" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'kintaro_converter' }}"
+                                href="/kintaroConverter">Converter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'kintaro_renamer' }}"
+                                href="/kintaroRenamer">Renamer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'kintaro_compressor' }}"
+                                href="{{ url_for('kintaro_compressor') }}">Compressor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'kintaro_downloader' }}"
+                                href="/kintaroDownloader">Downloader</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='fileUploader.js') }}"></script>
+    <script src="{{ url_for('static', filename='folderOperations.js') }}"></script>
+    <script src="{{ url_for('static', filename='uiHelpers.js') }}"></script>
+    <script src="{{ url_for('static', filename='formHandlers.js') }}"></script>
+    <script src="{{ url_for('static', filename='fileListUpdater.js') }}"></script>
+</body>
+
+</html>

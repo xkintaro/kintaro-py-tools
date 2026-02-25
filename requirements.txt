@@ -1,0 +1,4 @@
+Flask
+Pillow
+moviepy==1.0.3
+yt-dlp

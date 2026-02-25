@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="dropzone" class="dropzone d-flex justify-content-center align-items-center">
+    <p>Drop files here or click to upload</p>
+    <input type="file" id="fileInput" multiple style="display: none;">
+</div>
+<hr class="bg-light">
+<form id="compressForm" class="mt-4">
+    <div class="form-group mb-3">
+        <div class="mb-2">
+            <small class="form-text text-muted mb-4">(Entering a higher bitrate value than the one in the original file
+                does not
+                improve the quality.)</small>
+        </div>
+        <select id="bitrate" name="bitrate" class="form-control">
+            <option value="6000k">6000k bitrate - (1080p)</option>
+            <option value="4000k">4000k bitrate - (720p)</option>
+            <option value="2000k">2000k bitrate - (480p)</option>
+            <option value="1000k" selected>1000k bitrate - (360p)</option>
+            <option value="500k">500k bitrate - (240p)</option>
+        </select>
+        <small class="form-text text-muted">Select video compression quality (only affects videos)</small>
+        <div class="mt-2">
+            <input type="number" id="customBitrate" name="customBitrate" class="form-control"
+                placeholder="Enter custom bitrate (optional)" min="1">
+            <small class="form-text text-muted">Enter custom bitrate in "k" (only affects videos). Leave empty to use
+                dropdown value.</small>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <input type="number" id="customAudioBitrate" name="audiobitrate" class="form-control"
+            placeholder="Enter audio bitrate in k (default 128k)" min="1">
+        <small class="form-text text-muted">Enter custom audio bitrate in "k". Leave empty to use default 128k.</small>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Compress</button>
+</form>
+<div id="status" class="text-center mt-4"></div>
+<div class="text-center">
+    <div class="spinner-border text-primary" role="status" id="loadingSpinner">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<hr class="bg-light">
+<div class="accordion" id="fileAccordion">
+    <div class="card">
+        <div class="card-header" id="headingStart">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                    data-target="#collapseStart" aria-expanded="false" aria-controls="collapseStart">
+                    Compressor Start Folder ({{ start_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success mr-2" onclick="openFolder('compressorStart')">Open Folder</button>
+                    <button class="btn btn-danger" onclick="confirmClearFolder('compressorStart')">Clear All</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseStart" class="collapse" aria-labelledby="headingStart" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="start-preview" class="list-group">
+                    {% for file in start_files %}
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFinish">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                    data-target="#collapseFinish" aria-expanded="false" aria-controls="collapseFinish">
+                    Compressor Finish Folder ({{ finish_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success mr-2" onclick="openFolder('compressorFinish')">Open Folder</button>
+                    <button class="btn btn-danger" onclick="confirmClearFolder('compressorFinish')">Clear All</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseFinish" class="collapse" aria-labelledby="headingFinish" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="finish-preview" class="list-group">
+                    {% for file in finish_files %}
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeDropzone('compressor');
+        initializeCompressorForm();
+    });
+</script>
+{% endblock %}

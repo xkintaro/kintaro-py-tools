@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form id="downloadForm">
+    <div class="form-group">
+        <label for="url">Enter the video URL:</label>
+        <input type="text" class="form-control" id="url" name="url" placeholder="Enter URL" autocomplete="off">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Download</button>
+</form>
+<div id="status" class="text-center mt-4"></div>
+<div class="text-center">
+    <div class="spinner-border text-primary" role="status" id="loadingSpinner" style="display: none;">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<hr class="bg-light">
+<div class="accordion" id="fileAccordion">
+    <div class="card">
+        <div class="card-header" id="headingDownloads">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#collapseDownloads"
+                    aria-expanded="false" aria-controls="collapseDownloads">
+                    Downloads Folder ({{ download_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success" onclick="openFolder('downloads')">Open Folder</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseDownloads" class="collapse" aria-labelledby="headingDownloads" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="downloads-preview" class="list-group">
+                    {% for file in download_files %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeDownloaderForm();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="dropzone" class="dropzone d-flex justify-content-center align-items-center">
+    <p>Drop files here or click to upload</p>
+    <input type="file" id="fileInput" multiple style="display: none;">
+</div>
+<hr class="bg-light">
+<form id="renameForm" class="mt-4">
+    <div class="form-group">
+        <label for="baseFilename">Enter base filename:</label>
+        <input type="text" class="form-control" id="baseFilename" name="baseFilename" autocomplete="off"
+            placeholder="image, video, my-picture" required>
+    </div>
+    <div class="form-group">
+        <label for="pattern">Select numbering pattern:</label>
+        <select class="form-control" id="pattern" name="pattern">
+            <option value="001">001 (3 digits)</option>
+            <option value="0001">0001 (4 digits)</option>
+            <option value="00001">00001 (5 digits)</option>
+            <option value="000001">000001 (6 digits)</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Rename Files</button>
+</form>
+<div id="status" class="text-center mt-4"></div>
+<div class="text-center">
+    <div class="spinner-border text-primary" role="status" id="loadingSpinner" style="display: none;">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<hr class="bg-light">
+<div class="accordion" id="fileAccordion">
+    <div class="card">
+        <div class="card-header" id="headingStart">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                    data-target="#collapseStart" aria-expanded="false" aria-controls="collapseStart">
+                    Renamer Start Folder ({{ start_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success mr-2" onclick="openFolder('renamerStart')">Open Folder</button>
+                    <button class="btn btn-danger" onclick="confirmClearFolder('renamerStart')">Clear All</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseStart" class="collapse" aria-labelledby="headingStart" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="start-preview" class="list-group">
+                    {% for file in start_files %}
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFinish">
+            <h2 class="mb-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                    data-target="#collapseFinish" aria-expanded="false" aria-controls="collapseFinish">
+                    Renamer Finish Folder ({{ finish_files|length }} files)
+                </button>
+                <div>
+                    <button class="btn btn-success mr-2" onclick="openFolder('renamerFinish')">Open Folder</button>
+                    <button class="btn btn-danger" onclick="confirmClearFolder('renamerFinish')">Clear All</button>
+                </div>
+            </h2>
+        </div>
+        <div id="collapseFinish" class="collapse" aria-labelledby="headingFinish" data-parent="#fileAccordion">
+            <div class="card-body">
+                <ul id="finish-preview" class="list-group">
+                    {% for file in finish_files %}
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-light">
+                        {{ file }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeDropzone('renamer');
+        initializeRenamerForm();
+    });
+</script>
+{% endblock %}
