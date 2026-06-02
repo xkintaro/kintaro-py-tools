@@ -1,82 +1,102 @@
+<a href="README.md">
+  <img src="https://img.shields.io/badge/Language-English-blue?style=flat-square&logo=google-translate&logoColor=white" alt="English">
+</a>
+<a href="README-TR.md">
+  <img src="https://img.shields.io/badge/Dil-Türkçe-red?style=flat-square&logo=google-translate&logoColor=white" alt="Türkçe">
+</a>
+
+  <br />
+  <br />
+
 <div align="center">
   <img src="static/md/kintaro.png" width="120" height="120" />
+
   <br />
   <br />
 
-[![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap_4-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/)
-[![Pillow](https://img.shields.io/badge/Pillow-00568F?style=for-the-badge&logo=python&logoColor=white)](https://pillow.readthedocs.io/)
-[![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
-[![yt-dlp](https://img.shields.io/badge/yt--dlp-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/yt-dlp/yt-dlp)
+  <p>
+    Quickly convert, compress, batch rename, and download videos over your local network.
+  </p>
 
-  <p align="center">
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+![Pillow](https://img.shields.io/badge/Pillow-00568F?style=for-the-badge&logo=python&logoColor=white)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white)
+![MoviePy](https://img.shields.io/badge/MoviePy-2C3E50?style=for-the-badge&logo=python&logoColor=white)
+![yt-dlp](https://img.shields.io/badge/yt--dlp-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+
+  <p>
     <a href="#features">Features</a> •
     <a href="#technologies">Technologies</a> •
-    <a href="#installation">Installation</a> 
+    <a href="#installation">Installation</a> •
+    <a href="#how-does-it-work">How to Use?</a> •
+    <a href="#project-structure">Project Structure</a> •
+    <a href="#license">License</a> •
+    <a href="#gallery">Gallery</a>
   </p>
-</div>
 
----
+  <br />
+  <br />
+</div>
 
 ## 📋 About
 
-A local web-based file utility toolkit built with Flask. It provides a simple browser interface for common file operations like format conversion, compression, batch renaming, and video downloading.
+**Kintaro Tools** allows you to safely handle all your media operations on your own computer without uploading them to the internet. It brings together tedious tasks such as format conversion, size reduction, and batch renaming in a single interface. You get fast and effortless results without your data leaving your device.
 
-<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="auto" style="border-radius: 8px;" />
+<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="auto"  />
 
-## <a id="features"></a> ✨ Features
+## ✨ Features <a id="features"></a>
 
-### 🔄 File Converter
+### File Converter
 
-Convert files between different formats through a drag-and-drop interface.
+Convert files between different formats.
 
-- **Images:** JPG, JPEG, PNG, WEBP
-- **Videos:** MP4, AVI, MOV, WEBM
-- **Audio:** MP3, WAV, AAC, FLAC, OGG
+- **Images:** `JPG`, `PNG`, `WEBP`
+- **Videos:** `MP4`, `AVI`, `MOV`, `WEBM`
+- **Audio:** `MP3`, `WAV`, `AAC`, `FLAC`, `OGG`
 
-### 📦 File Compressor
+### File Compressor
 
-Reduce file sizes for images, videos, and audio files.
+Reduce the size of video and audio files.
 
 - Preset and custom bitrate options for video compression
+- Adjustable video bitrate
 - Adjustable audio bitrate
-- Image optimization with quality control (JPEG, PNG, WEBP)
 
-### 📝 Batch Renamer
+### Batch Renamer
 
 Rename multiple files at once with a consistent naming pattern.
 
-- Custom base filename
+- Specify prefix in the filename
 - Configurable zero-padded numbering (3 to 6 digits)
 - Preserves original file extensions
 
-### ⬇️ Video Downloader
+**Example**: "_picture_001.jpg_", "_picture_002.jpg_", "_picture_003.jpg_"
+
+### Video Downloader
 
 Download videos from various platforms using [yt-dlp](https://github.com/yt-dlp/yt-dlp).
 
-- Supports YouTube, TikTok, and other platforms that yt-dlp supports
-- Downloads are saved with a timestamped filename
+- Supports YouTube, Instagram, TikTok, and other platforms supported by yt-dlp.
+- Downloaded files are saved with a timestamped filename.
 
-<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="auto" style="border-radius: 8px;" />
+## 🛠️ Technologies <a id="technologies"></a>
 
-## <a id="technologies"></a> 🛠️ Technologies
+- **Backend:** `Python`, `Flask`
+- **Frontend:** `HTML`, `CSS`, `Bootstrap`, `jQuery`
+- **Media Processing:** `Pillow`, `MoviePy`, `FFmpeg`
+- **Downloading:** `yt-dlp`
 
-- **Backend:** Python, Flask
-- **Frontend:** HTML, CSS, Bootstrap 4, jQuery
-- **Media Processing:** Pillow (images), MoviePy / FFmpeg (video & audio)
-- **Downloading:** yt-dlp
-
-<img src="static/md/20260225135733250_is51xyvr.jpg" width="auto" style="border-radius: 8px;" />
-
-## <a id="installation"></a> 🚀 Installation
+## 🚀 Installation <a id="installation"></a>
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/xkintaro/py-tools.git
-   cd py-tools
+   git clone https://github.com/xkintaro/kintaro-py-tools.git
+   cd kintaro-py-tools
    ```
 
 2. **Install dependencies:**
@@ -85,35 +105,23 @@ Download videos from various platforms using [yt-dlp](https://github.com/yt-dlp/
    pip install -r requirements.txt
    ```
 
-   Or use the provided batch file on Windows:
-
-   ```
-   install_requirements.bat
-   ```
-
 3. **Run the application:**
 
    ```bash
    python app.py
    ```
 
-   Or use the provided batch file on Windows:
+The application will automatically open `http://127.0.0.1:5000` in your default browser.
 
-   ```
-   run.bat
-   ```
-
-4. The app will automatically open `http://127.0.0.1:5000` in your default browser.
-
-<img src="static/md/20260225135733315_atlvossg.jpg" width="auto" style="border-radius: 8px;" />
-
-## ⚙️ How It Works
+## ⚙️ How to Use? <a id="how-does-it-work"></a>
 
 The application uses a folder-based workflow:
 
-1. **Upload or place files** into the corresponding `Start` folder (via drag-and-drop in the browser or manually through the file system).
-2. **Choose your settings** and click the action button (Convert, Compress, Rename).
-3. **Processed files** appear in the corresponding `Finish` folder. Source files are removed from the Start folder after successful processing.
+1. Upload files to the corresponding `Start` folder.
+
+2. Select your settings and start the process.
+
+3. Processed files appear in the corresponding `Finish` folder. Source files are removed from the `Start` folder after successful processing.
 
 Each tool has its own pair of working directories:
 
@@ -124,64 +132,64 @@ Each tool has its own pair of working directories:
 | Renamer    | `renamerStart/`    | `renamerFinish/`    |
 | Downloader | —                  | `downloads/`        |
 
-You can also open these folders directly from the web interface or clear them with a single click.
+You can also open these folders directly from the web interface or delete them with a single click.
 
-<img src="static/md/20260225135733381_fg9mow1p.jpg" width="auto" style="border-radius: 8px;" />
-
-## 📂 Project Structure
+## 📂 Project Structure <a id="project-structure"></a>
 
 ```
-py-tools/
-├── app.py                     # Main Flask application
-├── requirements.txt           # Python dependencies
-├── run.bat                    # Windows run script
-├── install_requirements.bat   # Windows dependency installer
+kintaro-py-tools/
+├── app.py
+├── requirements.txt
+├── run.bat
+├── install_requirements.bat
 ├── modules/
-│   ├── config.py              # Directory path configuration
-│   ├── utils.py               # Shared utility functions
-│   ├── kintaroConverter.py    # Format conversion logic
-│   ├── kintaroCompressor.py   # File compression logic
-│   ├── kintaroDownloader.py   # Video download logic
-│   ├── kintaroRenamer.py      # Batch rename logic
-│   ├── kintaroClearFolder.py  # Folder clearing endpoint
-│   ├── kintaroOpenFolder.py   # Open folder in file explorer
-│   └── kintaroUploadFiles.py  # File upload handling
+│   ├── config.py
+│   ├── utils.py
+│   ├── kintaroConverter.py
+│   ├── kintaroCompressor.py
+│   ├── kintaroDownloader.py
+│   ├── kintaroRenamer.py
+│   ├── kintaroClearFolder.py
+│   ├── kintaroOpenFolder.py
+│   └── kintaroUploadFiles.py
 ├── templates/
-│   ├── layout.html            # Base template with navbar
-│   ├── index.html             # Home page
-│   ├── kintaroConverter.html  # Converter page
-│   ├── kintaroCompressor.html # Compressor page
-│   ├── kintaroDownloader.html # Downloader page
-│   └── kintaroRenamer.html    # Renamer page
+│   ├── layout.html
+│   ├── index.html
+│   ├── kintaroConverter.html
+│   ├── kintaroCompressor.html
+│   ├── kintaroDownloader.html
+│   └── kintaroRenamer.html
 └── static/
-    ├── styles.css             # Application styles
-    ├── fileUploader.js        # Drag-and-drop upload logic
-    ├── folderOperations.js    # Open/clear folder actions
-    ├── formHandlers.js        # Form submission handlers
-    ├── fileListUpdater.js     # Dynamic file list refresh
-    └── uiHelpers.js           # UI utility functions
+    ├── styles.css
+    ├── fileUploader.js
+    ├── folderOperations.js
+    ├── formHandlers.js
+    ├── fileListUpdater.js
+    └── uiHelpers.js
 ```
 
-## ✅ Supported Formats
+## 📄 License <a id="license"></a>
 
-### Conversion
+This project is licensed under the MIT License. You can check the [LICENSE](LICENSE) file for details.
 
-| Input Type | Supported Formats        | Can Convert To                      |
-| ---------- | ------------------------ | ----------------------------------- |
-| Image      | JPG, JPEG, PNG, WEBP     | JPG, JPEG, PNG, WEBP                |
-| Video      | MP4, AVI, MOV, WEBM      | MP4, AVI, MOV, WEBM + Audio formats |
-| Audio      | MP3, WAV, AAC, FLAC, OGG | MP3, WAV, AAC, FLAC, OGG            |
+## 🖼️ Gallery <a id="gallery"></a>
 
-### Compression
+<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="auto"  />
 
-| Type  | Method                                           |
-| ----- | ------------------------------------------------ |
-| Image | Quality reduction & optimization (JPEG/PNG/WEBP) |
-| Video | Bitrate adjustment (preset or custom)            |
-| Audio | Bitrate adjustment (default 128k)                |
+#
 
----
+<img src="static/md/20260225135733250_is51xyvr.jpg" width="auto"  />
+
+#
+
+<img src="static/md/20260225135733315_atlvossg.jpg" width="auto"  />
+
+#
+
+<img src="static/md/20260225135733381_fg9mow1p.jpg" width="auto"  />
+
+#
 
 <p align="center">
-  <sub>❤️ Developed by Kintaro.</sub>
+  <sub>❤️ Developed by "Mustafa TAŞAL" (kintaro)</sub>
 </p>
