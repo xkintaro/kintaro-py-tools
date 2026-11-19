@@ -16,10 +16,18 @@ def init_routes(app):
         if not directory:
             return jsonify(error="Invalid folder"), 400
 
+        os.makedirs(directory, exist_ok=True)
         for file in files:
             filename = secure_filename(file.filename)
+            if not filename:
+                continue
+            name, ext = os.path.splitext(filename)
             if len(filename) > MAX_FILENAME_LENGTH:
-                name, ext = os.path.splitext(filename)
-                filename = name[:MAX_FILENAME_LENGTH - len(ext)] + ext
+                name = name[:MAX_FILENAME_LENGTH - len(ext)]
+                filename = name + ext
+            counter = 1
+            while os.path.exists(os.path.join(directory, filename)):
+                filename = f"{name}_{counter}{ext}"
+                counter += 1
             file.save(os.path.join(directory, filename))
         return jsonify(success=True), 200

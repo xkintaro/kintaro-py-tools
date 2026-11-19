@@ -47,4 +47,4 @@ if __name__ == '__main__':
     port = find_free_port(5000)
     if not is_running_from_reloader():
         webbrowser.open(f'http://127.0.0.1:{port}')
-    app.run(debug=True, port=port)
+    app.run(debug=False, host='127.0.0.1', port=port)

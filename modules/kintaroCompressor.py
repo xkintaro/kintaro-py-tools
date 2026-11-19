@@ -24,13 +24,21 @@ def determine_audio_codec(ext):
     else:
         return None
 
+def normalize_bitrate(value, default):
+    value = (value or '').strip().lower()
+    if value.endswith('k'):
+        value = value[:-1]
+    if not value.isdigit() or int(value) <= 0:
+        return default
+    return f"{int(value)}k"
+
 def compress_image(input_path, output_path):
     try:
         img = Image.open(input_path)
-        if img.mode == 'RGBA':
-            img = img.convert('RGB')
         lower_output = output_path.lower()
         if lower_output.endswith(('.jpg', '.jpeg')):
+            if img.mode not in ('RGB', 'L'):
+                img = img.convert('RGB')
             img.save(output_path, 'JPEG', quality=60, optimize=True)
         elif lower_output.endswith('.png'):
             img.save(output_path, 'PNG', optimize=True)
@@ -48,7 +56,7 @@ def compress_video(input_path, output_path):
     clip = None
     try:
         clip = VideoFileClip(input_path)
-        bitrate = request.form.get('bitrate', '1000k')
+        bitrate = normalize_bitrate(request.form.get('bitrate'), '1000k')
         lower_output = output_path.lower()
         if lower_output.endswith('.webm'):
             clip.write_videofile(output_path,
@@ -82,7 +90,7 @@ def compress_audio(input_path, output_path):
     clip = None
     try:
         clip = AudioFileClip(input_path)
-        bitrate = request.form.get('audiobitrate', '128k')
+        bitrate = normalize_bitrate(request.form.get('audiobitrate'), '128k')
         ext = os.path.splitext(output_path)[1]
         codec = determine_audio_codec(ext)
         clip.write_audiofile(output_path, bitrate=bitrate, codec=codec)

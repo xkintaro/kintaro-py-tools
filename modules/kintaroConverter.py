@@ -30,14 +30,14 @@ def determine_audio_codec(output_format):
         return None
 
 def convert_image(input_path, output_path, output_format):
-    img = Image.open(input_path)
-    out_format = output_format.lower()
-    if out_format in ['jpg', 'jpeg']:
-        pil_format = 'JPEG'
-        img = img.convert('RGB')
-    else:
-        pil_format = output_format.upper()
-    img.save(output_path, format=pil_format)
+    with Image.open(input_path) as img:
+        out_format = output_format.lower()
+        if out_format in ['jpg', 'jpeg']:
+            pil_format = 'JPEG'
+            img = img.convert('RGB')
+        else:
+            pil_format = output_format.upper()
+        img.save(output_path, format=pil_format)
 
 def convert_audio(input_path, output_path, output_format):
     clip = None
@@ -75,15 +75,15 @@ def convert_video(input_path, output_path, output_format):
             if out_format == 'webm':
                 video_codec = 'libvpx'
                 audio_codec = 'libvorbis'
-                extra_params = ['-vf', 'scale=iw:-1']
+                extra_params = ['-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2']
             elif out_format in ['mp4', 'mov']:
                 video_codec = 'libx264'
                 audio_codec = 'aac'
-                extra_params = ['-vf', 'scale=iw:-1', '-c:a', 'aac']
+                extra_params = ['-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2', '-c:a', 'aac']
             elif out_format == 'avi':
                 video_codec = 'mpeg4'
                 audio_codec = 'mp3'
-                extra_params = ['-vf', 'scale=iw:-1']
+                extra_params = ['-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2']
             else:
                 raise ValueError(f"Unsupported output format for video conversion: {output_format}")
 

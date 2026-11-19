@@ -109,14 +109,19 @@ function initializeRenamerForm() {
             })
             .then(result => {
                 hideSpinner();
+                if (result.errors) {
+                    result.errors.forEach(error => {
+                        showStatus(error, 'danger');
+                    });
+                }
                 if (result.success) {
-                    showStatus('Files renamed successfully!');
+                    showStatus('Files renamed successfully!', 'success');
                     updateFileList();
                     form.reset();
                 } else if (result.error) {
                     showStatus(result.error, 'danger');
-                } else {
-                    throw new Error('Invalid response format');
+                } else if (!result.errors || result.errors.length === 0) {
+                    showStatus('There are no files to rename.', 'danger');
                 }
             })
             .catch(error => {

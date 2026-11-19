@@ -12,10 +12,15 @@ def init_routes(app):
 
     @app.route('/rename', methods=['POST'])
     def rename():
-        base_filename = request.form['baseFilename']
-        pattern = request.form['pattern']
+        base_filename = request.form.get('baseFilename', '').strip()
+        pattern = request.form.get('pattern', '001')
         errors = []
         successes = []
+
+        if any(c in base_filename for c in '<>:"/\\|?*'):
+            return jsonify(success=False, errors=["The file name contains invalid characters."], successes=[]), 200
+        if pattern not in ('001', '0001', '00001', '000001'):
+            pattern = '001'
 
         files = sorted(os.listdir(RENAMER_START_DIR))
         for i, filename in enumerate(files, 1):
