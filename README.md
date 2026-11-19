@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/Language-English-blue?style=flat-square&logo=google-translate&logoColor=white" alt="English">
 </a>
 <a href="README-TR.md">
-  <img src="https://img.shields.io/badge/Dil-Türkçe-red?style=flat-square&logo=google-translate&logoColor=white" alt="Türkçe">
+  <img src="https://img.shields.io/badge/Language-Türkçe-red?style=flat-square&logo=google-translate&logoColor=white" alt="Türkçe">
 </a>
 
   <br />
@@ -10,12 +10,11 @@
 
 <div align="center">
   <img src="static/md/kintaro.png" width="120" height="120" />
-
   <br />
   <br />
 
   <p>
-    Quickly convert, compress, batch rename, and download videos over your local network.
+     Convert, compress, rename and download media files on your own computer.
   </p>
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -29,164 +28,102 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
   <p>
+    <a href="#about">About</a> •
     <a href="#features">Features</a> •
-    <a href="#technologies">Technologies</a> •
-    <a href="#installation">Installation</a> •
-    <a href="#how-does-it-work">How to Use?</a> •
-    <a href="#project-structure">Project Structure</a> •
-    <a href="#license">License</a> •
-    <a href="#gallery">Gallery</a>
+    <a href="#tech">Tech</a> •
+    <a href="#setup">Setup</a> •
+    <a href="#gallery">Gallery</a> •
+    <a href="#license">License</a>
   </p>
 
   <br />
   <br />
 </div>
 
-## 📋 About
+## <a id="about"></a> 📋 About
 
-**Kintaro Tools** allows you to safely handle all your media operations on your own computer without uploading them to the internet. It brings together tedious tasks such as format conversion, size reduction, and batch renaming in a single interface. You get fast and effortless results without your data leaving your device.
+**Kintaro Tools** is a web application that brings everyday media tasks together in one interface. It converts files between formats, compresses videos and audio, renames files in bulk and downloads videos from the internet.
 
-<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="auto"  />
+Everything runs on your own computer, so your files are never uploaded to an online service. Each tool works with its own input and output folders, and you can add files to them by dragging them onto the page.
 
-## ✨ Features <a id="features"></a>
+## <a id="features"></a> ✨ Features
 
-### File Converter
+- **File converter**: Convert images between `JPG`, `PNG` and `WEBP`, videos between `MP4`, `AVI`, `MOV` and `WEBM`, and audio between `MP3`, `WAV`, `AAC`, `FLAC` and `OGG`.
+- **File compressor**: Reduce the size of videos with a preset or custom bitrate, and set the audio bitrate yourself.
+- **Batch renamer**: Rename all files with a prefix and a zero-padded number of 3 to 6 digits, such as `picture_001.jpg`. The original extensions are kept.
+- **Video downloader**: Download videos from YouTube, Instagram, TikTok and the other sites supported by yt-dlp. Videos are saved in the best available quality as MP4, with a timestamp as their name.
+- **Drag and drop upload**: Add files to a tool by dragging them onto the page or by selecting them.
+- **Folder shortcuts**: Open the working folders of a tool or clear them with a single click.
 
-Convert files between different formats.
+## <a id="tech"></a> 🛠️ Tech
 
-- **Images:** `JPG`, `PNG`, `WEBP`
-- **Videos:** `MP4`, `AVI`, `MOV`, `WEBM`
-- **Audio:** `MP3`, `WAV`, `AAC`, `FLAC`, `OGG`
+`Python` · `Flask` · `Pillow` · `MoviePy` · `FFmpeg` · `yt-dlp` · `Bootstrap` · `jQuery` · `JavaScript` · `Font Awesome`
 
-### File Compressor
+## <a id="setup"></a> 🚀 Setup
 
-Reduce the size of video and audio files.
+### Requirements
 
-- Preset and custom bitrate options for video compression
-- Adjustable video bitrate
-- Adjustable audio bitrate
+- **Python 3**
 
-### Batch Renamer
+### Step-by-Step Installation
 
-Rename multiple files at once with a consistent naming pattern.
-
-- Specify prefix in the filename
-- Configurable zero-padded numbering (3 to 6 digits)
-- Preserves original file extensions
-
-**Example**: "_picture_001.jpg_", "_picture_002.jpg_", "_picture_003.jpg_"
-
-### Video Downloader
-
-Download videos from various platforms using [yt-dlp](https://github.com/yt-dlp/yt-dlp).
-
-- Supports YouTube, Instagram, TikTok, and other platforms supported by yt-dlp.
-- Downloaded files are saved with a timestamped filename.
-
-## 🛠️ Technologies <a id="technologies"></a>
-
-- **Backend:** `Python`, `Flask`
-- **Frontend:** `HTML`, `CSS`, `Bootstrap`, `jQuery`
-- **Media Processing:** `Pillow`, `MoviePy`, `FFmpeg`
-- **Downloading:** `yt-dlp`
-
-## 🚀 Installation <a id="installation"></a>
-
-1. **Clone the repository:**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/xkintaro/kintaro-py-tools.git
    cd kintaro-py-tools
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the application:**
+   On Windows you can run `install_requirements.bat` instead.
+
+3. **Start the application**
 
    ```bash
    python app.py
    ```
 
-The application will automatically open `http://127.0.0.1:5000` in your default browser.
+   On Windows you can run `run.bat` instead.
 
-## ⚙️ How to Use? <a id="how-does-it-work"></a>
+The application opens [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser automatically. If port 5000 is in use, the next free port is chosen.
 
-The application uses a folder-based workflow:
+### Usage
 
-1. Upload files to the corresponding `Start` folder.
+The application uses a folder based workflow:
 
-2. Select your settings and start the process.
+1. Add your files to the `Start` folder of the tool.
+2. Choose your settings and start the process.
+3. The processed files appear in the `Finish` folder of the tool. The source files are removed from the `Start` folder after they are processed successfully.
 
-3. Processed files appear in the corresponding `Finish` folder. Source files are removed from the `Start` folder after successful processing.
+Each tool has its own pair of folders:
 
-Each tool has its own pair of working directories:
-
-| Tool       | Input Folder       | Output Folder       |
-| ---------- | ------------------ | ------------------- |
-| Converter  | `converterStart/`  | `converterFinish/`  |
+| Tool | Input Folder | Output Folder |
+|---|---|---|
+| Converter | `converterStart/` | `converterFinish/` |
 | Compressor | `compressorStart/` | `compressorFinish/` |
-| Renamer    | `renamerStart/`    | `renamerFinish/`    |
-| Downloader | —                  | `downloads/`        |
+| Renamer | `renamerStart/` | `renamerFinish/` |
+| Downloader | — | `downloads/` |
 
-You can also open these folders directly from the web interface or delete them with a single click.
+## <a id="gallery"></a> 🖼️ Gallery
 
-## 📂 Project Structure <a id="project-structure"></a>
+<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="100%" />
 
-```
-kintaro-py-tools/
-├── app.py
-├── requirements.txt
-├── run.bat
-├── install_requirements.bat
-├── modules/
-│   ├── config.py
-│   ├── utils.py
-│   ├── kintaroConverter.py
-│   ├── kintaroCompressor.py
-│   ├── kintaroDownloader.py
-│   ├── kintaroRenamer.py
-│   ├── kintaroClearFolder.py
-│   ├── kintaroOpenFolder.py
-│   └── kintaroUploadFiles.py
-├── templates/
-│   ├── layout.html
-│   ├── index.html
-│   ├── kintaroConverter.html
-│   ├── kintaroCompressor.html
-│   ├── kintaroDownloader.html
-│   └── kintaroRenamer.html
-└── static/
-    ├── styles.css
-    ├── fileUploader.js
-    ├── folderOperations.js
-    ├── formHandlers.js
-    ├── fileListUpdater.js
-    └── uiHelpers.js
-```
+<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="100%" />
 
-## 📄 License <a id="license"></a>
+<img src="static/md/20260225135733250_is51xyvr.jpg" width="100%" />
 
-This project is licensed under the MIT License. You can check the [LICENSE](LICENSE) file for details.
+<img src="static/md/20260225135733315_atlvossg.jpg" width="100%" />
 
-## 🖼️ Gallery <a id="gallery"></a>
+<img src="static/md/20260225135733381_fg9mow1p.jpg" width="100%" />
 
-<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="auto"  />
+## <a id="license"></a> 📄 License
 
-#
-
-<img src="static/md/20260225135733250_is51xyvr.jpg" width="auto"  />
-
-#
-
-<img src="static/md/20260225135733315_atlvossg.jpg" width="auto"  />
-
-#
-
-<img src="static/md/20260225135733381_fg9mow1p.jpg" width="auto"  />
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 #
 

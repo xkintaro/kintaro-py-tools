@@ -1,8 +1,8 @@
 <a href="README.md">
- <img src="https://img.shields.io/badge/Language-English-blue?style=flat-square&logo=google-translate&logoColor=white" alt="English">
+  <img src="https://img.shields.io/badge/Language-English-blue?style=flat-square&logo=google-translate&logoColor=white" alt="English">
 </a>
 <a href="README-TR.md">
- <img src="https://img.shields.io/badge/Dil-Türkçe-red?style=flat-square&logo=google-translate&logoColor=white" alt="Türkçe">
+  <img src="https://img.shields.io/badge/Language-Türkçe-red?style=flat-square&logo=google-translate&logoColor=white" alt="Türkçe">
 </a>
 
   <br />
@@ -10,12 +10,11 @@
 
 <div align="center">
   <img src="static/md/kintaro.png" width="120" height="120" />
-
   <br />
   <br />
 
   <p>
-    Dosyalarınızı yerel ağ üzerinden hızlıca dönüştürün, sıkıştırın, toplu isimlendirin ve video indirin.
+     Medya dosyalarını kendi bilgisayarınızda dönüştürün, sıkıştırın, adlandırın ve indirin.
   </p>
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -29,166 +28,102 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
   <p>
+    <a href="#about">Hakkında</a> •
     <a href="#features">Özellikler</a> •
-    <a href="#technologies">Teknolojiler</a> •
-    <a href="#installation">Kurulum</a> •
-    <a href="#how-does-it-work">Nasıl Kullanılır?</a> •
-    <a href="#project-structure">Proje Yapısı</a> •
-    <a href="#license">Lisans</a> •
-    <a href="#gallery">Galeri</a>
+    <a href="#tech">Teknolojiler</a> •
+    <a href="#setup">Kurulum</a> •
+    <a href="#gallery">Galeri</a> •
+    <a href="#license">Lisans</a>
   </p>
 
   <br />
   <br />
 </div>
 
+## <a id="about"></a> 📋 Hakkında
 
+**Kintaro Tools**, günlük medya işlerini tek bir arayüzde toplayan bir web uygulamasıdır. Dosyaları biçimler arasında dönüştürür, video ve sesleri sıkıştırır, dosyaları toplu olarak yeniden adlandırır ve internetten video indirir.
 
-## 📋 Hakkında
+Her şey kendi bilgisayarınızda çalışır, yani dosyalarınız hiçbir çevrimiçi hizmete yüklenmez. Her aracın kendi giriş ve çıkış klasörleri vardır ve dosyaları sayfaya sürükleyerek bu klasörlere ekleyebilirsiniz.
 
-**Kintaro Tools**, tüm medya işlemlerinizi internete yükleme yapmadan kendi bilgisayarınızda güvenle halletmenizi sağlar. Format dönüştürme, boyut küçültme ve toplu isimlendirme gibi yorucu işleri tek bir arayüzde toplar. Verileriniz dışarı çıkmadan, hızlı ve zahmetsizce sonuç alırsınız.
+## <a id="features"></a> ✨ Özellikler
 
-<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="auto"  />
+- **Dosya dönüştürücü**: Görselleri `JPG`, `PNG` ve `WEBP`, videoları `MP4`, `AVI`, `MOV` ve `WEBM`, sesleri ise `MP3`, `WAV`, `AAC`, `FLAC` ve `OGG` biçimleri arasında dönüştürün.
+- **Dosya sıkıştırıcı**: Videoların boyutunu hazır ya da özel bir bit hızıyla küçültün, ses bit hızını kendiniz belirleyin.
+- **Toplu yeniden adlandırıcı**: Tüm dosyaları bir önek ve `picture_001.jpg` gibi 3 ila 6 basamaklı sıfır dolgulu bir numarayla yeniden adlandırın. Orijinal uzantılar korunur.
+- **Video indirici**: YouTube, Instagram, TikTok ve yt-dlp'nin desteklediği diğer sitelerden video indirin. Videolar mevcut en iyi kalitede MP4 olarak, adı zaman damgası olacak şekilde kaydedilir.
+- **Sürükle ve bırak ile yükleme**: Dosyaları sayfaya sürükleyerek ya da seçerek bir araca ekleyin.
+- **Klasör kısayolları**: Bir aracın çalışma klasörlerini tek tıkla açın ya da temizleyin.
 
-## ✨ Özellikler <a id="features"></a>
+## <a id="tech"></a> 🛠️ Teknolojiler
 
-### Format Dönüştürücü
+`Python` · `Flask` · `Pillow` · `MoviePy` · `FFmpeg` · `yt-dlp` · `Bootstrap` · `jQuery` · `JavaScript` · `Font Awesome`
 
-Dosyaları farklı formatlar arasında dönüştürün.
+## <a id="setup"></a> 🚀 Kurulum
 
-- **Resim:** `JPG`, `PNG`, `WEBP`
-- **Video:** `MP4`, `AVI`, `MOV`, `WEBM`
-- **Ses:** `MP3`, `WAV`, `AAC`, `FLAC`, `OGG`
+### Gereksinimler
 
-### Dosya Sıkıştırıcı
+- **Python 3**
 
-Video ve ses dosyalarının boyutlarını küçültün.
+### Adım Adım Kurulum
 
-- Video sıkıştırma için önceden ayarlanmış ve özel bit hızı seçenekleri
-- Ayarlanabilir video bit hızı
-- Ayarlanabilir ses bit hızı
-
-### Toplu Yeniden Adlandırıcı
-
-Birden fazla dosyayı aynı anda tutarlı bir adlandırma deseniyle yeniden adlandırın.
-
-- Dosya adında prefix belirleme
-- Yapılandırılabilir sıfırla doldurulmuş numaralandırma (3 ila 6 basamak)
-- Orijinal dosya uzantılarını korur
-
-**Örnek**: "_picture_001.jpg_", "_picture_002.jpg_", "_picture_003.jpg_"
-
-### Video İndirici
-
-[yt-dlp](https://github.com/yt-dlp/yt-dlp) kullanarak çeşitli platformlardan videolar indirin.
-
-- YouTube, Instagram, TikTok ve yt-dlp'nin desteklediği diğer platformları destekler.
-- İndirilen dosyalar zaman damgalı dosya adıyla kaydedilir.
-
-## 🛠️ Teknolojiler <a id="technologies"></a>
-
-- **Backend:** `Python`, `Flask`
-- **Frontend:** `HTML`, `CSS`, `Bootstrap`, `jQuery`
-- **Media Processing:** `Pillow`, `MoviePy`, `FFmpeg`
-- **Downloading:** `yt-dlp`
-
-## 🚀 Kurulum <a id="installation"></a>
-
-1. **Depoyu klonlayın:**
+1. **Depoyu klonlayın**
 
    ```bash
    git clone https://github.com/xkintaro/kintaro-py-tools.git
    cd kintaro-py-tools
    ```
 
-2. **Bağımlılıkları yükleyin:**
+2. **Bağımlılıkları yükleyin**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Uygulamayı çalıştırın:**
+   Windows'ta bunun yerine `install_requirements.bat` dosyasını çalıştırabilirsiniz.
+
+3. **Uygulamayı başlatın**
 
    ```bash
    python app.py
    ```
 
-Uygulama, varsayılan tarayıcınızda otomatik olarak `http://127.0.0.1:5000` adresini açacaktır.
+   Windows'ta bunun yerine `run.bat` dosyasını çalıştırabilirsiniz.
 
-## ⚙️ Nasıl Kullanılır? <a id="how-does-it-work"></a>
+Uygulama, tarayıcınızda [http://127.0.0.1:5000](http://127.0.0.1:5000) adresini otomatik olarak açar. 5000 portu kullanılıyorsa sıradaki boş port seçilir.
+
+### Kullanım
 
 Uygulama klasör tabanlı bir iş akışı kullanır:
 
-1. Dosyaları ilgili `Start` klasörüne yükleyin.
+1. Dosyalarınızı aracın `Start` klasörüne ekleyin.
+2. Ayarlarınızı seçin ve işlemi başlatın.
+3. İşlenen dosyalar aracın `Finish` klasöründe görünür. Kaynak dosyalar başarıyla işlendikten sonra `Start` klasöründen silinir.
 
-2. Ayarlarınızı seçin ve sistemi başlatın.
+Her aracın kendi klasör çifti vardır:
 
-3. İşlenmiş dosyalar ilgili `Finish` klasöründe görünür. Kaynak dosyalar, başarılı işlemden sonra ilgili `Start` ​​klasöründen kaldırılır.
+| Araç | Giriş Klasörü | Çıkış Klasörü |
+|---|---|---|
+| Dönüştürücü | `converterStart/` | `converterFinish/` |
+| Sıkıştırıcı | `compressorStart/` | `compressorFinish/` |
+| Yeniden adlandırıcı | `renamerStart/` | `renamerFinish/` |
+| İndirici | — | `downloads/` |
 
-Her aracın kendine ait bir çalışma dizini çifti vardır:
+## <a id="gallery"></a> 🖼️ Galeri
 
-| Tool       | Input Folder       | Output Folder       |
-| ---------- | ------------------ | ------------------- |
-| Converter  | `converterStart/`  | `converterFinish/`  |
-| Compressor | `compressorStart/` | `compressorFinish/` |
-| Renamer    | `renamerStart/`    | `renamerFinish/`    |
-| Downloader | —                  | `downloads/`        |
+<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="100%" />
 
-Bu klasörleri doğrudan web arayüzünden de açabilir veya tek bir tıklamayla silebilirsiniz.
+<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="100%" />
 
-## 📂 Proje Yapısı <a id="project-structure"></a>
+<img src="static/md/20260225135733250_is51xyvr.jpg" width="100%" />
 
-```
-kintaro-py-tools/
-├── app.py
-├── requirements.txt
-├── run.bat
-├── install_requirements.bat
-├── modules/
-│   ├── config.py
-│   ├── utils.py
-│   ├── kintaroConverter.py
-│   ├── kintaroCompressor.py
-│   ├── kintaroDownloader.py
-│   ├── kintaroRenamer.py
-│   ├── kintaroClearFolder.py
-│   ├── kintaroOpenFolder.py
-│   └── kintaroUploadFiles.py
-├── templates/
-│   ├── layout.html
-│   ├── index.html
-│   ├── kintaroConverter.html
-│   ├── kintaroCompressor.html
-│   ├── kintaroDownloader.html
-│   └── kintaroRenamer.html
-└── static/
-    ├── styles.css
-    ├── fileUploader.js
-    ├── folderOperations.js
-    ├── formHandlers.js
-    ├── fileListUpdater.js
-    └── uiHelpers.js
-```
+<img src="static/md/20260225135733315_atlvossg.jpg" width="100%" />
 
-## 📄 Lisans <a id="license"></a>
+<img src="static/md/20260225135733381_fg9mow1p.jpg" width="100%" />
 
-Bu proje MIT Lisansı altında lisanslanmıştır. Ayrıntılar için [LICENSE](LICENSE) dosyasını inceleyebilirsiniz.
+## <a id="license"></a> 📄 Lisans
 
-## 🖼️ Galeri <a id="gallery"></a>
-
-<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="auto"  />
-
-#
-
-<img src="static/md/20260225135733250_is51xyvr.jpg" width="auto"  />
-
-#
-
-<img src="static/md/20260225135733315_atlvossg.jpg" width="auto"  />
-
-#
-
-<img src="static/md/20260225135733381_fg9mow1p.jpg" width="auto"  />
+Bu proje MIT Lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakabilirsiniz.
 
 #
 
