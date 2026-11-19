@@ -1,4 +1,6 @@
 Flask
 Pillow
 moviepy==1.0.3
-yt-dlp
+yt-dlp[default]
+deno
+imageio-ffmpeg
