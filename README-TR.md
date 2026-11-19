@@ -111,15 +111,15 @@ Her aracın kendi klasör çifti vardır:
 
 ## <a id="gallery"></a> 🖼️ Galeri
 
-<img src="static/md/20260225135733123_oy5b0wg0.jpg" width="100%" />
+<img src="static/md/20260225135733123_oy5b0wg0.jpg" />
 
-<img src="static/md/20260225135733185_8a8gwrdh.jpg" width="100%" />
+<img src="static/md/20260225135733185_8a8gwrdh.jpg" />
 
-<img src="static/md/20260225135733250_is51xyvr.jpg" width="100%" />
+<img src="static/md/20260225135733250_is51xyvr.jpg" />
 
-<img src="static/md/20260225135733315_atlvossg.jpg" width="100%" />
+<img src="static/md/20260225135733315_atlvossg.jpg" />
 
-<img src="static/md/20260225135733381_fg9mow1p.jpg" width="100%" />
+<img src="static/md/20260225135733381_fg9mow1p.jpg" />
 
 ## <a id="license"></a> 📄 Lisans
 
